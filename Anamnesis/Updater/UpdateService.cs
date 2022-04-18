@@ -19,7 +19,8 @@ namespace Anamnesis.Updater
 
 	public class UpdateService : ServiceBase<UpdateService>
 	{
-		private const string Repository = "imchillin/Anamnesis";
+		private const string StableRepository = "imchillin/Anamnesis";
+		private const string BleedingEdge = "chris-forbes-1/Anamnesis";
 
 		private readonly HttpClient httpClient = new HttpClient();
 		private Release? currentRelease;
@@ -67,9 +68,14 @@ namespace Anamnesis.Updater
 			if (!this.httpClient.DefaultRequestHeaders.Contains("User-Agent"))
 				this.httpClient.DefaultRequestHeaders.Add("User-Agent", "AutoUpdater");
 
+			if (!this.httpClient.DefaultRequestHeaders.Contains("Accept"))
+				this.httpClient.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+
+			var repo = SettingsService.Current.UseAnamDevStream ? BleedingEdge : StableRepository;
+
 			try
 			{
-				string url = $"https://api.github.com/repos/{Repository}/releases/latest";
+				string url = $"https://api.github.com/repos/{repo}/releases/latest";
 				string result = await this.httpClient.GetStringAsync(url);
 				this.currentRelease = JsonSerializer.Deserialize<Release>(result);
 

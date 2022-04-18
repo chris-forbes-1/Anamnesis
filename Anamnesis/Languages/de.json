@@ -1,6 +1,6 @@
 {
 	"Language": "Deutsch",
-	
+
 	"Common_OpenFile": "Laden",
 	"Common_SaveFile": "Speichern",
 	"Common_OpenDir": "Öffnen",
@@ -11,14 +11,14 @@
 	"Common_Scale": "Größe",
 	"Common_LinkVector": "Link X, Y, and Z, axis together",
 	"Common_Confirm": "Bestätigen",
-	
+
 	"ProcessSelector_AllWarning": "Bitte den Final Fantasy XIV DirectX 11 Prozess auswählen. Das Auswählen anderer Prozesse kann diese und Anamnesis zum Absturz bringen.",
 	"ProcessSelector_NotFound": "Final Fantasy XIV Prozess (ffxiv_dx11) nicht gefunden.",
 	"ProcessSelector_NotFound2": "Bitte versicherer, dass das Spiel im DirectX 11 Modus läuft.",
 
 	"Error_NotInGame": "Nicht angemeldet",
 	"Error_FavoritesFail": "Laden von Favoriten fehlgeschlagen. Deine Favoriten wurden zurückgesetzt.",
-	
+
 	"FileBrowser_GoUp": "Zurück",
 	"FileBrowser_Flatten": "Minimale Ansicht",
 	"FileBrowser_CreateFolder": "Ordner erstellen",
@@ -27,7 +27,7 @@
 	"FileBrowser_Browse": "Datei suchen",
 	"FileBrowser_ReplaceTitle": "Datei überschreiben",
 	"FileBrowser_ReplaceMessage": "Willst du folgende Datei überschreiben?: \"{0}\"?",
-	
+
 	"FileBrowser_Sort": "Sortieren nach",
 	"FileBrowser_SortAlpha": "Name (Alphabetisch)",
 	"FileBrowser_SortDate": "Datum (Neueste zuerst)",
@@ -46,13 +46,13 @@
 	"Target_Other": "Andere",
 
 	"EquipmentSelector_Classes": "Klassen / Berufe",
-	"EquipmentSelector_HideLocked": "Rasse/Geschlecht-spezifische Items ausblenden",				
+	"EquipmentSelector_HideLocked": "Rasse/Geschlecht-spezifische Items ausblenden",
 	"EquipmentSelector_Ambidextrous": "Waffen in jeder Hand erlauben",
 	"EquipmentSelector_AutoOffhand": "Nebenhand automatisch ausrüsten",
 	"EquipmentSelector_AutoOffhandTip": "Zugehörige Nebenhandwaffe automatisch ausrüsten und automatisch bei Doppelhandwaffen entfernen.",
 
 	"EquipmentSelector_FilterOther": "Andere",
-	"EquipmentSelector_Categories": "Kategorien",	  
+	"EquipmentSelector_Categories": "Kategorien",
 	"EquipmentSelector_Standard": "Standard-Gegenstände",
 	"EquipmentSelector_StandardTip": "Gegenstände, die man durch normales spielen bekommt",
 	"EquipmentSelector_Premium": "Premium-Gegenstände",
@@ -208,16 +208,16 @@
 	"Character_Data_VieraFeminine": "Viera Feminin",
 	"Character_Data_PadjalMasculine": "Padjal Maskulin",
 	"Character_Data_PadjalFeminine": "Padjal Feminin",
-	
+
 	"Character_ExWeapons_Header": "Erweiterte Waffen",
-	
+
 	"Character_WarningGpose": "Aussehen und Ausrüstung können nur ausserhalb von GPose geändert werden.",
 
 	"Pose_WarningNotGPose": "Posing ist nur in GPose möglich. Gehe in GPose mit /gpose.",
 	"Pose_WarningNotFrozen": "Posing funktionert nur mit eingefrorenen Charakteren. Friere den Charakter im GPose Fenster ein.",
 	"Pose_WarningQuit": "Willst du Anamnesis wirklich beenden? Die derzeitige Pose geht verloren.",
-	"Pose_WarningExpresionPositions": "Gesichtsausdrücke zu laden, während Positionen festgestellt sind, kann zu ungewollten Resultaten führen. Bist du dir sicher?",				 
-																							  
+	"Pose_WarningExpresionPositions": "Gesichtsausdrücke zu laden, während Positionen festgestellt sind, kann zu ungewollten Resultaten führen. Bist du dir sicher?",
+
 	"Pose_NoSkeleton": "Kein Skelett für diese Ansicht vorhanden.",
 	"Pose_NoModel": "Dieser Charakter hat kein Model.",
 	"Pose_NothingSelected": "Charakter - Nichts ausgewählt",
@@ -494,7 +494,9 @@
 	"Settings_Theme_Color": "Farbe",
 	"Settings_ShowGallery": "Gallerie anzeigen",
 	"Settings_WrapRotations": "Schieberegel normalisieren",
-	
+	"Settings_Build": "Bauen",
+	"Settings_BuildStream": "Verwenden Sie den Entwickler-Build-Stream",
+	"Settings_BuildWarning": "Entwickler-Builds können instabil sein oder Fehler enthalten. Diese Builds werden nicht unterstützt, die Verwendung erfolgt auf eigene Gefahr.",
 	"About_Version_Header": "Version",
 	"About_OpenSource_Header": "Voller Stolz Open Source",
 	"About_Contact_Header": "Kontakt aufnehmen",
@@ -516,7 +518,7 @@
 	"Item_InvisibleBodyDesc": "Du wirst unsichtbar (nur dein Kopf nicht)",
 	"Item_InvisibleHead": "Unsichtbar",
 	"Item_InvisibleHeadDesc": "Dein Kopf wird unsichtbar",
-	
+
 	"Help_Title": "Hilfe",
 	"Help_Tip": "Wiki aufrufen"
 }

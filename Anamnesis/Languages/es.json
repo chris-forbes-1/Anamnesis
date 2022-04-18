@@ -412,7 +412,9 @@
 	"Settings_Theme": "Tema",
 	"Settings_Theme_Hydaelyn": "Hydaelyn",
 	"Settings_Theme_Zodiark": "Zodiark",
-
+	"Settings_Build": "Para construir",
+	"Settings_BuildStream": "Usar flujo de compilación de desarrollador",
+	"Settings_BuildWarning": "Las compilaciones de los desarrolladores pueden ser inestables o contener errores. Estas compilaciones no son compatibles, use bajo su propio riesgo.",
 	"About_Version_Header": "Versión",
 	"About_OpenSource_Header": "Orgullosos de ser de código abierto",
 	"About_Contact_Header": "Ponte en contacto con nosotros",

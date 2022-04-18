@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Anamnesis": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\code\\Anamnesis\\Anamnesis\\bin\\win-x64",
+      "environmentVariables": {
+        "DEBUG": "true"
+      },
+      "nativeDebugging": true
+    }
+  }
+}

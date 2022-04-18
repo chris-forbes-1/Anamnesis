@@ -514,6 +514,9 @@
 	"Settings_Theme_Color": "색상",
 	"Settings_OverlayWindow": "미니 창",
 	"Settings_WrapRotations": "회전 슬라이더 워핑",
+	"Settings_Build": "짓다",
+	"Settings_BuildStream": "개발자 빌드 스트림 사용",
+	"Settings_BuildWarning": "개발자 빌드가 불안정하거나 버그가 포함될 수 있습니다. 이러한 빌드는 지원되지 않습니다. 사용에 따른 위험은 사용자가 감수해야 합니다.",
 
 	"About_Version_Header": "버전",
 	"About_OpenSource_Header": "오픈 소스",

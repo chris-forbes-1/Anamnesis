@@ -495,6 +495,9 @@
 	"Settings_Hyperlegible": "Gunakan Font Atkinson Hyperlegible",
 	"Settings_OverlayWindow": "Mini window",
 	"Settings_WrapRotations": "Bungkus penggeser rotasi",
+	"Settings_Build": "Membangun",
+	"Settings_BuildStream": "Gunakan aliran build pengembang",
+	"Settings_BuildWarning": "Build pengembang mungkin tidak stabil atau mengandung bug. Build ini tidak didukung, gunakan dengan risiko Anda sendiri.",
 
 	"About_Version_Header": "Versi",
 	"About_OpenSource_Header": "Bangga Open Source",

@@ -57,6 +57,8 @@ namespace Anamnesis.Services
 
 		public string? DebugGamePath { get; set; }
 
+		public bool UseAnamDevStream { get; set; } = false;
+
 		public Dictionary<string, KeyCombination> KeyboardBindings { get; set; } = new()
 		{
 			{ "QuaternionEditor.RotateZPlus", new KeyCombination(Key.S) },

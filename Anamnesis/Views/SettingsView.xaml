@@ -244,15 +244,37 @@
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto"/>
 						<RowDefinition Height="Auto"/>
-					</Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
 					<XivToolsWPF:TextBlock Grid.Column="0" Grid.Row="0" Key="Settings_UseExternalRefresh" Style="{StaticResource Label}"/>
 					<CheckBox IsChecked="{Binding SettingsService.Settings.UseExternalRefresh}" Grid.Column="1" Grid.Row="0" Margin="6"/>
 
 					<XivToolsWPF:InfoControl Grid.Row="1" Key="Settings_UseExternalRefreshWarning" Width="237" Grid.ColumnSpan="2"/>
+                    
 				</Grid>
 			</GroupBox>
+            <GroupBox Style="{StaticResource PanelGroupBox}">
+                <GroupBox.Header>
+                    <XivToolsWPF:Header Key="Settings_Build"
+                                        Icon="Hammer"/>
+                </GroupBox.Header>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <XivToolsWPF:TextBlock Grid.Column="0" Grid.Row="0" Key="Settings_BuildStream" Style="{StaticResource Label}"/>
+                    <CheckBox IsChecked="{Binding SettingsService.Settings.UseAnamDevStream}"  Grid.Column="1" Grid.Row="0" Margin="6"/>
+                    <XivToolsWPF:InfoControl Grid.Row="1" Key="Settings_BuildWarning" Width="237" Grid.ColumnSpan="2"/>
 
+                </Grid>
+            </GroupBox>
 		</StackPanel>
 
 		<GroupBox Grid.Column="2" Style="{StaticResource PanelGroupBox}">

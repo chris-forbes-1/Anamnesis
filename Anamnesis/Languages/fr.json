@@ -407,7 +407,9 @@
 	"Settings_Theme": "Themes",
 	"Settings_Theme_Hydaelyn": "Hydaelyn",
 	"Settings_Theme_Zodiark": "Zodiark",
-
+	"Settings_Build": "Construire",
+	"Settings_BuildStream": "Utiliser le flux de construction du développeur",
+	"Settings_BuildWarning": "Les versions de développeur peuvent être instables ou contenir des bogues. Ces versions ne sont pas prises en charge, utilisez-les à vos risques et périls.",
 	"About_Version_Header": "Version",
 	"About_OpenSource_Header": "Open Source et fier",
 	"About_Contact_Header": "Rester Informé",

@@ -23,6 +23,7 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<PlatformTarget>x64</PlatformTarget>
 		<Platforms>x64</Platforms>
+		<SignAssembly>false</SignAssembly>
 	</PropertyGroup>
 
 	<ItemGroup>
