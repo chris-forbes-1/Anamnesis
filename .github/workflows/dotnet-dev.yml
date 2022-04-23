@@ -1,4 +1,4 @@
-name: Publish Anamnesis
+name: Publish Anamnesis Dev
 
 on:
   workflow_dispatch:

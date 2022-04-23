@@ -20,7 +20,6 @@ namespace Anamnesis.Updater
 	public class UpdateService : ServiceBase<UpdateService>
 	{
 		private const string StableRepository = "imchillin/Anamnesis";
-		private const string BleedingEdge = "chris-forbes-1/Anamnesis";
 
 		private readonly HttpClient httpClient = new HttpClient();
 		private Release? currentRelease;
@@ -36,17 +35,8 @@ namespace Anamnesis.Updater
 			// Determine if this is a dev build
 			if (VersionInfo.Date.Year <= 2000)
 			{
-				// Don't show if there is a debugger attached
-				if (Debugger.IsAttached)
-					return;
-
-				// Prompt the user
-				var result = await GenericDialog.ShowLocalizedAsync("DevBuild_Body", "DevBuild_Title", System.Windows.MessageBoxButton.YesNo);
-				if (result == true)
-					return;
-
 				// Always skip the time check if they say no
-				skipTimeCheck = true;
+				skipTimeCheck = await PromptUserWithDevBuildWarning();
 			}
 
 			DateTimeOffset lastCheck = SettingsService.Current.LastUpdateCheck;
@@ -71,11 +61,9 @@ namespace Anamnesis.Updater
 			if (!this.httpClient.DefaultRequestHeaders.Contains("Accept"))
 				this.httpClient.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
 
-			var repo = SettingsService.Current.UseAnamDevStream ? BleedingEdge : StableRepository;
-
 			try
 			{
-				string url = $"https://api.github.com/repos/{repo}/releases/latest";
+				string url = $"https://api.github.com/repos/{StableRepository}/releases/latest";
 				string result = await this.httpClient.GetStringAsync(url);
 				this.currentRelease = JsonSerializer.Deserialize<Release>(result);
 
@@ -85,6 +73,7 @@ namespace Anamnesis.Updater
 				if (this.currentRelease.Published == null)
 					throw new Exception("No published timestamp in update json");
 
+				bool isPreAlpha = (this.currentRelease.TagName != null) && this.currentRelease.TagName.Contains("pre-alpha");
 				DateTimeOffset published = (DateTimeOffset)this.currentRelease.Published;
 				published = published.ToUniversalTime();
 
@@ -92,19 +81,49 @@ namespace Anamnesis.Updater
 				published = published.AddHours(-4);
 
 				bool update = published > VersionInfo.Date;
-
-				if (update)
+				if (isPreAlpha)
 				{
-					await Dispatch.MainThread();
+					await PromptUserWithDevBuildWarning(); // prompt the user and warn about dev builds
 
-					UpdateDialog dlg = new();
-					dlg.Changes = this.currentRelease.Changes;
-					await ViewService.ShowDialog<UpdateDialog, bool?>("Update", dlg);
+					if (SettingsService.Current.UseAnamDevStream)
+					{
+						if (update)
+						{
+							await Dispatch.MainThread();
+
+							UpdateDialog dlg = new();
+							dlg.Changes = this.currentRelease.Changes;
+							await ViewService.ShowDialog<UpdateDialog, bool?>("Update", dlg);
+							SettingsService.Current.LastUpdateCheck = DateTimeOffset.Now;
+							SettingsService.Save();
+							return update;
+						}
+					}
+					else
+					{
+						return false; // It's a pre-alpha build and the user doesn't want to use dev builds
+					}
+				}
+				else if (!SettingsService.Current.UseAnamDevStream)
+				{
+					if(!isPreAlpha && update)
+					{
+						await Dispatch.MainThread();
+
+						UpdateDialog dlg = new();
+						dlg.Changes = this.currentRelease.Changes;
+						await ViewService.ShowDialog<UpdateDialog, bool?>("Update", dlg);
+						SettingsService.Current.LastUpdateCheck = DateTimeOffset.Now;
+						SettingsService.Save();
+						return update;
+					}
+					else
+					{
+						return false;
+					}
 				}
 
-				SettingsService.Current.LastUpdateCheck = DateTimeOffset.Now;
-				SettingsService.Save();
-				return update;
+				return false;
 			}
 			catch (HttpRequestException ex)
 			{
@@ -219,6 +238,21 @@ namespace Anamnesis.Updater
 			{
 				Log.Error(ex, "Failed to perform update");
 			}
+		}
+
+		private static async Task<bool> PromptUserWithDevBuildWarning()
+		{
+			// Don't show if there is a debugger attached
+			if (Debugger.IsAttached)
+				return false;
+
+			// Prompt the user
+			var result = await GenericDialog.ShowLocalizedAsync("DevBuild_Body", "DevBuild_Title", System.Windows.MessageBoxButton.YesNo);
+			if (result == true)
+				return false;
+
+			// Always skip the time check if they say no
+			return true;
 		}
 
 		public class Release
