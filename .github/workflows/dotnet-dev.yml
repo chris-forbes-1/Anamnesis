@@ -104,6 +104,7 @@ jobs:
         exclusions: '*.pdb* *.xml*'
         
     - name: Upload Release
+      id: upload_release
       uses: ncipollo/release-action@v1
       with:
         allowUpdates: true
@@ -113,3 +114,9 @@ jobs:
         #body: ${{ steps.Changelog.outputs.changelog }}
         draft: true
         token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - uses: eregon/publish-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        release_id: ${{ steps.upload_release.outputs.id }}        
